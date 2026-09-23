@@ -136,6 +136,69 @@
       }
     }
 
+    function formatAvailabilityDate(dateStr) {
+      if (!dateStr) return "";
+      const [year, month, day] = dateStr.split("-");
+      const date = new Date(year, month - 1, day);
+      return date.toLocaleDateString("en-US", {
+        weekday: "short",
+        month: "short",
+        day: "numeric"
+      });
+    }
+
+    function renderAvailabilityBadge(availability, releaseWindow) {
+      if (!availability) return "";
+
+      if (availability.status === "available" && availability.earliestDate) {
+        const formatted = formatAvailabilityDate(availability.earliestDate);
+        return `
+          <div class="mt-3 flex items-center justify-between flex-wrap gap-2 text-xs bg-emerald-50 text-emerald-950 border border-emerald-300 px-3 py-2 rounded-lg">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span><strong>Next Open Date:</strong> ${formatted} ${availability.slotType ? `(${availability.slotType})` : ""}</span>
+            </div>
+            ${releaseWindow ? `<span class="text-[11px] text-emerald-700 italic">Schedule: ${releaseWindow}</span>` : ""}
+          </div>
+        `;
+      }
+
+      if (availability.status === "batch_drop_scheduled" && availability.earliestDate) {
+        const formatted = formatAvailabilityDate(availability.earliestDate);
+        return `
+          <div class="mt-3 flex items-center justify-between flex-wrap gap-2 text-xs bg-sky-50 text-sky-950 border border-sky-300 px-3 py-2 rounded-lg">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-sky-500"></span>
+              <span><strong>Upcoming Batch Drop:</strong> Opens ${formatted}</span>
+            </div>
+            ${releaseWindow ? `<span class="text-[11px] text-sky-700 font-medium">Window: ${releaseWindow}</span>` : ""}
+          </div>
+        `;
+      }
+
+      if (availability.status === "booked_out") {
+        return `
+          <div class="mt-3 flex items-center justify-between flex-wrap gap-2 text-xs bg-amber-50 text-amber-950 border border-amber-300 px-3 py-2 rounded-lg">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+              <span><strong>Online Calendar Full:</strong> Check back during next batch drop.</span>
+            </div>
+            ${releaseWindow ? `<span class="text-[11px] text-amber-800">Drop Rule: ${releaseWindow}</span>` : ""}
+          </div>
+        `;
+      }
+
+      if (releaseWindow) {
+        return `
+          <div class="mt-3 text-xs bg-slate-50 text-slate-700 border border-slate-200 px-3 py-1.5 rounded-lg">
+            <strong>Drop Window / Intake:</strong> ${releaseWindow}
+          </div>
+        `;
+      }
+
+      return "";
+    }
+
     function renderClinics(originLat, originLng, radiusLimit) {
       const listElement = document.getElementById("clinic-list");
       const countElement = document.getElementById("results-count");
@@ -161,10 +224,12 @@
       listElement.innerHTML = enrichedClinics
         .map((clinic) => {
           const hasOnlineBooking = clinic.bookingUrl && clinic.bookingType === "online_system";
+          const freeProgram = clinic.countyFreeProgram;
 
           return `
           <article class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:border-emerald-300 transition flex flex-col justify-between">
             <div>
+              <!-- Header & Distance -->
               <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
                 <div>
                   <div class="flex items-center gap-2 flex-wrap">
@@ -173,8 +238,13 @@
                       ${clinic.county} County
                     </span>
                     ${
+                      freeProgram && freeProgram.hasFreeProgram
+                        ? '<span class="text-[11px] bg-teal-100 text-teal-900 px-2 py-0.5 rounded font-semibold border border-teal-300">🎉 Free for County Residents</span>'
+                        : ""
+                    }
+                    ${
                       hasOnlineBooking
-                        ? '<span class="text-[11px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-medium border border-emerald-300 flex items-center gap-1">⚡ Online Booking</span>'
+                        ? '<span class="text-[11px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-medium border border-emerald-300">⚡ Online Booking</span>'
                         : ""
                     }
                   </div>
@@ -185,10 +255,30 @@
                 </span>
               </div>
 
+              <!-- General Notes -->
               <p class="text-xs text-slate-600 mt-3 bg-slate-50 p-2.5 rounded border border-slate-100 leading-relaxed">
                 ${clinic.notes}
               </p>
 
+              <!-- County Free Services Box -->
+              ${
+                freeProgram
+                  ? `
+                  <div class="mt-2 text-xs p-2.5 rounded-lg border ${
+                    freeProgram.hasFreeProgram
+                      ? "bg-teal-50/70 border-teal-200 text-teal-950"
+                      : "bg-slate-50 border-slate-200 text-slate-700"
+                  }">
+                    <span class="font-bold">${freeProgram.hasFreeProgram ? "Resident Subsidy:" : "Resident Rate:"}</span>
+                    <span class="font-medium">${freeProgram.programName}</span> —${freeProgram.details}
+                  </div>`
+                  : ""
+              }
+
+              <!-- Availability / Batch Drop Schedule Banner -->
+              ${renderAvailabilityBadge(clinic.availability, clinic.releaseWindow)}
+
+              <!-- TNR Requirements Badges -->
               <div class="flex flex-wrap gap-2 mt-3">
                 ${
                   clinic.requiresTrap
@@ -203,6 +293,7 @@
               </div>
             </div>
 
+            <!-- Footer Actions -->
             <div class="mt-5 pt-3 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div class="flex flex-wrap items-center gap-3 text-sm">
                 <a href="tel:${clinic.phone}" class="text-emerald-700 hover:text-emerald-800 font-medium">
@@ -219,7 +310,7 @@
                   ? `<a href="${clinic.bookingUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-semibold px-3.5 py-2 rounded-lg shadow-sm transition">
                       Book Online ↗
                     </a>`
-                  : `<span class="text-xs text-slate-400 italic">Call for TNR Intake</span>`
+                  : `<span class="text-xs text-slate-400 italic">Phone / Walk-in Only</span>`
               }
             </div>
           </article>
@@ -227,7 +318,6 @@
         })
         .join("");
     }
-
     async function handleSearch(e) {
       if (e) e.preventDefault();
       const zip = document.getElementById("zip-input").value.trim();
