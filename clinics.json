@@ -34,7 +34,7 @@
     "lat": 38.2711,
     "lng": -122.0229,
     "phone": "707-784-1356",
-    "website": "https://www.solanocounty.com/",
+    "website": "https://www.solanocounty.gov/government/sheriff-coroner/animal-care-services/low-cost-clinic",
     "bookingUrl": null,
     "bookingType": "phone_or_inquiry",
     "releaseWindow": "Vouchers issued first-come at shelter front counter",
@@ -88,18 +88,18 @@
     "lat": 38.5204,
     "lng": -121.3916,
     "phone": "916-383-7387",
-    "website": "http://www.sspca.org/",
-    "bookingUrl": "https://www.sspca.org/community-cats",
+    "website": "https://www.sspca.org/post/feralcommunity-cat-program",
+    "bookingUrl": "https://signup.com/client/invitation2/secure/59447936020/false#/invitation",
     "bookingType": "online_system",
-    "releaseWindow": "Next month's batch opens on the 1st of each month at 7:00 AM sharp",
+    "releaseWindow": "10 appointment spots will open each evening at 6:00 PM for the next day’s clinic. We ask if you are unable to trap a cat by 10pm, please cancel your appointment so that other trappers who were successful can use the appointment. Appointments must be made by 6:30 AM on the day of your visit.",
     "countyFreeProgram": {
       "hasFreeProgram": true,
       "programName": "City/County Feral Cat Program",
-      "details": "FREE TNR for residents within City of Sacramento & unincorporated County boundaries (funded via municipal animal care contracts)."
+      "details": "FREE TNR for residents within City of Sacramento & unincorporated County boundaries (funded via municipal animal care contracts).$65 fee if trapped outside Sacramento County"
     },
     "availability": {
       "status": "batch_drop_scheduled",
-      "earliestDate": "2026-10-01",
+      "earliestDate": "2026-09-24",
       "slotType": "Portal Batch Drop",
       "lastChecked": "2026-09-23T08:00:00Z"
     },
