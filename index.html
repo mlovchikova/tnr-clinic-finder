@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TNR Clinic Directory & Finder</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+  <header class="bg-emerald-800 text-white py-8 px-4 shadow-md">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-3xl font-bold tracking-tight">Community Cat TNR Finder</h1>
+      <p class="mt-2 text-emerald-100 text-sm md:text-base">
+        Locate low-cost Trap-Neuter-Return (TNR) clinics and spay/neuter resources within 50 miles of your ZIP code.
+      </p>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Search Controls -->
+    <section class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-8">
+      <form id="search-form" class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
+        <div>
+          <label for="zip-input" class="block text-sm font-semibold text-slate-700 mb-1">ZIP Code</label>
+          <input
+            type="text"
+            id="zip-input"
+            placeholder="e.g. 95620"
+            value="95620"
+            maxlength="5"
+            class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 font-mono"
+            required
+          />
+        </div>
+
+        <div>
+          <label for="radius-select" class="block text-sm font-semibold text-slate-700 mb-1">Search Radius</label>
+          <select
+            id="radius-select"
+            class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 bg-white"
+          >
+            <option value="15">Within 15 miles</option>
+            <option value="30">Within 30 miles</option>
+            <option value="50" selected>Within 50 miles</option>
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium py-2.5 px-4 rounded-lg transition duration-150 shadow-sm"
+        >
+          Find Clinics
+        </button>
+      </form>
+      <div id="status-message" class="text-xs text-slate-500 mt-2"></div>
+    </section>
+
+    <!-- Clinic Results -->
+    <section>
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-bold text-slate-800" id="results-count">Showing Clinics</h2>
+        <span class="text-xs bg-slate-200 text-slate-700 px-2.5 py-1 rounded-full font-medium">Sorted by Distance</span>
+      </div>
+
+      <div id="clinic-list" class="space-y-4">
+        <!-- Clinic cards injected via JavaScript -->
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Embedded Seed Directory
+    const CLINICS = [
+      {
+        id: "clinic_solano_spca",
+        name: "SPCA of Solano County",
+        address: "2200 Peabody Rd, Vacaville, CA 95687",
+        lat: 38.3308,
+        lng: -121.9682,
+        phone: "707-448-7722",
+        website: "https://www.solanospca.com/",
+        earTipRequired: true,
+        requiresTrap: true,
+        notes: "Low-cost spay/neuter clinic; contact directly for feral intake availability."
+      },
+      {
+        id: "clinic_solano_animal_care",
+        name: "Solano County Animal Care",
+        address: "2510 Clay Bank Rd, Fairfield, CA 94533",
+        lat: 38.2711,
+        lng: -122.0229,
+        phone: "707-784-1356",
+        website: "https://www.solanocounty.com/",
+        earTipRequired: true,
+        requiresTrap: true,
+        notes: "County shelter services; provides spay/neuter voucher coordination and trap loans."
+      },
+      {
+        id: "clinic_sac_spca",
+        name: "Sacramento SPCA",
+        address: "6201 Florin Perkins Rd, Sacramento, CA 95828",
+        lat: 38.5204,
+        lng: -121.3916,
+        phone: "916-383-7387",
+        website: "http://www.sspca.org/",
+        earTipRequired: true,
+        requiresTrap: true,
+        notes: "Dedicated Sunday feral cat clinic days plus regular TNR drop-off by appointment."
+      },
+      {
+        id: "clinic_csnc_sac",
+        name: "Community Spay Neuter Clinic",
+        address: "3839 Bradshaw Rd, Sacramento, CA 95827",
+        lat: 38.5637,
+        lng: -121.3346,
+        phone: "916-368-7314",
+        website: "http://www.communityspayneuter.com/",
+        earTipRequired: true,
+        requiresTrap: true,
+        notes: "High-volume surgery center adjacent to Bradshaw Shelter; accepts trapped ferals."
+      },
+      {
+        id: "clinic_animal_fix_pinole",
+        name: "Animal Fix Clinic",
+        address: "910 San Pablo Ave, Pinole, CA 94564",
+        lat: 37.9998,
+        lng: -122.3021,
+        phone: "510-215-9300",
+        website: "http://www.animalfixclinic.org/",
+        earTipRequired: true,
+        requiresTrap: true,
+        notes: "Specialized community cat center (formerly Fix Our Ferals). Online appointment booking."
+      }
+    ];
+
+    // Local centroid fallback for 95620 to avoid external API dependencies
+    const DEFAULT_COORDS = { "95620": { lat: 38.4455, lng: -121.8233 } };
+
+    // Haversine formula to calculate miles between two coordinates
+    function calculateDistance(lat1, lon1, lat2, lon2) {
+      const R = 3958.8; // Radius of the Earth in miles
+      const dLat = ((lat2 - lat1) * Math.PI) / 180;
+      const dLon = ((lon2 - lon1) * Math.PI) / 180;
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos((lat1 * Math.PI) / 180) *
+          Math.cos((lat2 * Math.PI) / 180) *
+          Math.sin(dLon / 2) *
+          Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      return R * c;
+    }
+
+    // Forward geocode via open street data (Zippopotam) with fallback
+    async function getCoordinatesForZip(zip) {
+      if (DEFAULT_COORDS[zip]) {
+        return DEFAULT_COORDS[zip];
+      }
+      try {
+        const response = await fetch(`https://api.zippopotam.us/us/${zip}`);
+        if (!response.ok) throw new Error("ZIP not found");
+        const data = await response.json();
+        return {
+          lat: parseFloat(data.places[0].latitude),
+          lng: parseFloat(data.places[0].longitude),
+          place: `${data.places[0]["place name"]}, ${data.places[0]["state abbreviation"]}`
+        };
+      } catch (err) {
+        return null;
+      }
+    }
+
+    function renderClinics(originLat, originLng, radiusLimit) {
+      const listElement = document.getElementById("clinic-list");
+      const countElement = document.getElementById("results-count");
+
+      const enrichedClinics = CLINICS.map((clinic) => {
+        const distance = calculateDistance(originLat, originLng, clinic.lat, clinic.lng);
+        return { ...clinic, distance };
+      })
+      .filter((clinic) => clinic.distance <= radiusLimit)
+      .sort((a, b) => a.distance - b.distance);
+
+      countElement.textContent = `${enrichedClinics.length} Clinic${enrichedClinics.length === 1 ? "" : "s"} Found`;
+
+      if (enrichedClinics.length === 0) {
+        listElement.innerHTML = `
+          <div class="bg-white p-6 rounded-lg text-center border border-slate-200 text-slate-500">
+            No TNR clinics registered within ${radiusLimit} miles of this location yet.
+          </div>`;
+        return;
+      }
+
+      listElement.innerHTML = enrichedClinics
+        .map(
+          (clinic) => `
+          <article class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:border-emerald-300 transition">
+            <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+              <div>
+                <h3 class="text-lg font-bold text-slate-900">${clinic.name}</h3>
+                <p class="text-sm text-slate-600 mt-0.5">${clinic.address}</p>
+              </div>
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 self-start">
+                ${clinic.distance.toFixed(1)} miles away
+              </span>
+            </div>
+
+            <p class="text-xs text-slate-600 mt-3 bg-slate-50 p-2.5 rounded border border-slate-100">
+              ${clinic.notes}
+            </p>
+
+            <div class="flex flex-wrap gap-2 mt-3">
+              ${
+                clinic.requiresTrap
+                  ? '<span class="text-[11px] bg-amber-50 text-amber-800 border border-amber-200 px-2 py-0.5 rounded">Humane Trap Required</span>'
+                  : ""
+              }
+              ${
+                clinic.earTipRequired
+                  ? '<span class="text-[11px] bg-blue-50 text-blue-800 border border-blue-200 px-2 py-0.5 rounded">Ear-Tip Mandatory</span>'
+                  : ""
+              }
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-100 flex flex-wrap gap-3 text-sm">
+              <a href="tel:${clinic.phone}" class="text-emerald-700 hover:text-emerald-800 font-medium">
+                📞 ${clinic.phone}
+              </a>
+              <span class="text-slate-300">|</span>
+              <a href="${clinic.website}" target="_blank" rel="noopener noreferrer" class="text-emerald-700 hover:text-emerald-800 font-medium">
+                Visit Website ↗
+              </a>
+            </div>
+          </article>
+        `
+        )
+        .join("");
+    }
+
+    async function handleSearch(e) {
+      if (e) e.preventDefault();
+      const zip = document.getElementById("zip-input").value.trim();
+      const radius = parseFloat(document.getElementById("radius-select").value);
+      const status = document.getElementById("status-message");
+
+      status.textContent = "Locating postal zone...";
+      const coords = await getCoordinatesForZip(zip);
+
+      if (!coords) {
+        status.textContent = "Could not locate this ZIP code. Please verify the 5 digits.";
+        return;
+      }
+
+      status.textContent = coords.place ? `Showing results around ${coords.place}` : "";
+      renderClinics(coords.lat, coords.lng, radius);
+    }
+
+    document.getElementById("search-form").addEventListener("submit", handleSearch);
+
+    // Initial load for 95620
+    handleSearch();
+  </script>
+</body>
+</html>
