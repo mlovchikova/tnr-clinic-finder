@@ -17,11 +17,11 @@
   </header>
 
   <main class="max-w-4xl mx-auto px-4 py-8">
-   <!-- Search Controls -->
-      <form id="search-form" class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-start">
-        <!-- ZIP Code Box -->
-        <div class="flex flex-col">
-          <label for="zip-input" class="text-sm font-semibold text-slate-700 h-6 flex items-center mb-1">
+<!-- Search Controls -->
+      <form id="search-form" class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
+        <!-- ZIP Code Field -->
+        <div class="flex flex-col w-full">
+          <label for="zip-input" class="text-sm font-semibold text-slate-700 h-5 mb-1.5 flex items-center">
             ZIP Code
           </label>
           <input
@@ -30,32 +30,45 @@
             placeholder="e.g. 95620"
             value="95620"
             maxlength="5"
-            class="h-11 w-full box-border px-3.5 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 font-mono bg-white leading-normal"
+            class="h-12 w-full box-border px-4 text-sm font-mono border border-slate-300 rounded-lg bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 leading-none shadow-sm transition"
             required
           />
         </div>
 
-        <!-- Radius Box -->
-        <div class="flex flex-col">
-          <label for="radius-select" class="text-sm font-semibold text-slate-700 h-6 flex items-center mb-1">
+        <!-- Radius Dropdown Field -->
+        <div class="flex flex-col w-full">
+          <label for="radius-select" class="text-sm font-semibold text-slate-700 h-5 mb-1.5 flex items-center">
             Search Radius
           </label>
-          <select
-            id="radius-select"
-            class="h-11 w-full box-border px-3.5 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-600 bg-white leading-normal"
-          >
-            <option value="15">Within 15 miles</option>
-            <option value="30">Within 30 miles</option>
-            <option value="50" selected>Within 50 miles</option>
-          </select>
+          <div class="relative w-full">
+            <select
+              id="radius-select"
+              class="h-12 w-full appearance-none box-border pl-4 pr-10 text-sm border border-slate-300 rounded-lg bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-600 focus:border-emerald-600 leading-none shadow-sm cursor-pointer transition"
+            >
+              <option value="15">Within 15 miles</option>
+              <option value="30">Within 30 miles</option>
+              <option value="50" selected>Within 50 miles</option>
+            </select>
+            <!-- Dropdown Chevron -->
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3.5 text-slate-500">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+              </svg>
+            </div>
+          </div>
         </div>
 
-        <button
-          type="submit"
-          class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-medium py-2 px-3.5 rounded-lg transition duration-150 shadow-sm"
-        >
-          Find Clinics
-        </button>
+        <!-- Submit Button -->
+        <div class="flex flex-col w-full">
+          <!-- Invisible spacer matching label height on desktop to keep baseline aligned -->
+          <span class="h-5 mb-1.5 hidden sm:block select-none" aria-hidden="true">&nbsp;</span>
+          <button
+            type="submit"
+            class="h-12 w-full box-border px-4 bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white font-medium text-sm rounded-lg shadow-sm transition flex items-center justify-center cursor-pointer leading-none"
+          >
+            Find Clinics
+          </button>
+        </div>
       </form>
       <div id="status-message" class="text-xs text-slate-500 mt-2"></div>
     </section>
