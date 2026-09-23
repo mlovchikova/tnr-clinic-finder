@@ -1,5 +1,32 @@
 [
   {
+    "id": "solano_ferals_scfff",
+    "name": "Solano County Friends of Feral Felines (SCFFF)",
+    "county": "Solano",
+    "address": "PO Box 235, Fairfield, CA 94533",
+    "lat": 38.2494,
+    "lng": -122.0405,
+    "phone": "707-421-5515",
+    "website": "https://www.solanoferals.org/",
+    "bookingUrl": "https://www.solanoferals.org/appointment-requests",
+    "bookingType": "online_system",
+    "releaseWindow": "Intake requests submitted online; scheduled based on upcoming volunteer surgical clinic dates",
+    "countyFreeProgram": {
+      "hasFreeProgram": false,
+      "programName": "Subsidized Community TNR",
+      "details": "Low-cost community cat package (surgery, rabies/FVRCP, flea/parasite treatment, ear-tip); trap loans available with deposit."
+    },
+    "availability": {
+      "status": "available",
+      "earliestDate": "2026-10-04",
+      "slotType": "Monthly TNR Clinic Request",
+      "lastChecked": "2026-09-23T14:00:00Z"
+    },
+    "earTipRequired": true,
+    "requiresTrap": true,
+    "notes": "Grassroots TNR organization serving Solano County. Requires feral cats to arrive in humane wire traps (no standard cat carriers). Pick-ups in Dixon 6:30 am"
+  },
+  {
     "id": "solano_spca",
     "name": "SPCA of Solano County",
     "county": "Solano",
@@ -78,7 +105,7 @@
     },
     "earTipRequired": true,
     "requiresTrap": true,
-    "notes": "High-volume TNR program covering Yolo County and surrounding rural zones with regular trap intake days."
+    "notes": "High-volume TNR program covering Yolo County and surrounding rural zones with regular trap intake days. Only ferals from Yolo County are acccepted"
   },
   {
     "id": "sacramento_spca",
@@ -105,7 +132,7 @@
     },
     "earTipRequired": true,
     "requiresTrap": true,
-    "notes": "Dedicated Sunday feral cat clinic days plus regular weekday community cat drop-offs by appointment."
+    "notes": "Dedicated Sunday feral cat clinic days plus regular weekday community cat drop-offs by appointment. Accepts ferals from other counties at $65 fee."
   },
   {
     "id": "community_spay_neuter_sac",
@@ -118,7 +145,7 @@
     "website": "http://www.communityspayneuter.com/",
     "bookingUrl": "http://www.communityspayneuter.com/appointments/",
     "bookingType": "online_system",
-    "releaseWindow": "Rolling calendar: 2 weeks of appointments released every Friday at 12:00 PM",
+    "releaseWindow": "Rolling calendar: 2 weeks of appointments released every Friday at 12:00 PM. For Feral/Community cat appointments, call the clinic on the 1st Monday of each month, starting at 7:00 am (916) 368-7314",
     "countyFreeProgram": {
       "hasFreeProgram": true,
       "programName": "Bradshaw Voucher Acceptance",
@@ -126,7 +153,7 @@
     },
     "availability": {
       "status": "available",
-      "earliestDate": "2026-10-02",
+      "earliestDate": "2026-10-20",
       "slotType": "Weekday Surgery Slot",
       "lastChecked": "2026-09-23T08:00:00Z"
     },
@@ -186,7 +213,7 @@
     },
     "earTipRequired": true,
     "requiresTrap": true,
-    "notes": "Nonprofit surgical clinic providing high-volume sterilization and feral cat packages."
+    "notes": "Nonprofit surgical clinic providing high-volume sterilization and feral cat packages. Only Napa county ferals are accepted."
   },
   {
     "id": "placer_spca_clinic",
