@@ -10,9 +10,21 @@
     "website": "https://www.solanospca.com/",
     "bookingUrl": null,
     "bookingType": "phone_or_inquiry",
+    "releaseWindow": "Phone intake opens weekdays 9:00 AM - 1:00 PM",
+    "countyFreeProgram": {
+      "hasFreeProgram": false,
+      "programName": "Subsidized Low-Cost",
+      "details": "Low copay ($25–$40) for Solano County feral cats; proof of local trapping required."
+    },
+    "availability": {
+      "status": "call_to_check",
+      "earliestDate": null,
+      "slotType": "Phone Reservation",
+      "lastChecked": "2026-09-23T08:00:00Z"
+    },
     "earTipRequired": true,
     "requiresTrap": true,
-    "notes": "Low-cost community spay/neuter; feral cat slots are coordinated directly by phone."
+    "notes": "Low-cost community spay/neuter; feral slots must be pre-arranged directly by phone."
   },
   {
     "id": "solano_animal_care",
@@ -25,9 +37,21 @@
     "website": "https://www.solanocounty.com/",
     "bookingUrl": null,
     "bookingType": "phone_or_inquiry",
+    "releaseWindow": "Vouchers issued first-come at shelter front counter",
+    "countyFreeProgram": {
+      "hasFreeProgram": true,
+      "programName": "Solano County Voucher Assistance",
+      "details": "FREE spay/neuter vouchers issued to residents of unincorporated Solano, Dixon, Fairfield, Suisun, and Rio Vista."
+    },
+    "availability": {
+      "status": "walk_in_only",
+      "earliestDate": null,
+      "slotType": "Voucher Desk",
+      "lastChecked": "2026-09-23T08:00:00Z"
+    },
     "earTipRequired": true,
     "requiresTrap": true,
-    "notes": "Municipal shelter providing spay/neuter vouchers, trap loans, and community cat referral support."
+    "notes": "Municipal shelter providing spay/neuter vouchers, trap loans, and municipal community cat program coordination."
   },
   {
     "id": "yolo_county_spca",
@@ -40,24 +64,21 @@
     "website": "https://yolospca.org/",
     "bookingUrl": "https://yolospca.org/spay-neuter-clinic/",
     "bookingType": "online_system",
+    "releaseWindow": "Slots release every Monday at 10:00 AM for the upcoming clinic cycle",
+    "countyFreeProgram": {
+      "hasFreeProgram": true,
+      "programName": "Yolo County Free TNR Grant",
+      "details": "100% FREE surgery, rabies, and ear-tip for community cats trapped within Yolo County boundaries."
+    },
+    "availability": {
+      "status": "available",
+      "earliestDate": "2026-09-28",
+      "slotType": "Monday Drop-off",
+      "lastChecked": "2026-09-23T08:00:00Z"
+    },
     "earTipRequired": true,
     "requiresTrap": true,
     "notes": "High-volume TNR program covering Yolo County and surrounding rural zones with regular trap intake days."
-  },
-  {
-    "id": "uc_davis_community_surgery",
-    "name": "UC Davis Community Surgery Service",
-    "county": "Yolo",
-    "address": "1 Garrod Dr, Davis, CA 95616",
-    "lat": 38.5303,
-    "lng": -121.7645,
-    "phone": "530-752-1393",
-    "website": "https://www.vetmed.ucdavis.edu/",
-    "bookingUrl": null,
-    "bookingType": "phone_or_inquiry",
-    "earTipRequired": true,
-    "requiresTrap": true,
-    "notes": "Operates community veterinary programs and spay/neuter outreach in collaboration with local rescues."
   },
   {
     "id": "sacramento_spca",
@@ -70,6 +91,18 @@
     "website": "http://www.sspca.org/",
     "bookingUrl": "https://www.sspca.org/community-cats",
     "bookingType": "online_system",
+    "releaseWindow": "Next month's batch opens on the 1st of each month at 7:00 AM sharp",
+    "countyFreeProgram": {
+      "hasFreeProgram": true,
+      "programName": "City/County Feral Cat Program",
+      "details": "FREE TNR for residents within City of Sacramento & unincorporated County boundaries (funded via municipal animal care contracts)."
+    },
+    "availability": {
+      "status": "batch_drop_scheduled",
+      "earliestDate": "2026-10-01",
+      "slotType": "Portal Batch Drop",
+      "lastChecked": "2026-09-23T08:00:00Z"
+    },
     "earTipRequired": true,
     "requiresTrap": true,
     "notes": "Dedicated Sunday feral cat clinic days plus regular weekday community cat drop-offs by appointment."
@@ -85,9 +118,21 @@
     "website": "http://www.communityspayneuter.com/",
     "bookingUrl": "http://www.communityspayneuter.com/appointments/",
     "bookingType": "online_system",
+    "releaseWindow": "Rolling calendar: 2 weeks of appointments released every Friday at 12:00 PM",
+    "countyFreeProgram": {
+      "hasFreeProgram": true,
+      "programName": "Bradshaw Voucher Acceptance",
+      "details": "Accepts Sacramento County Animal Care vouchers for $0 copay community cat sterilizations."
+    },
+    "availability": {
+      "status": "available",
+      "earliestDate": "2026-10-02",
+      "slotType": "Weekday Surgery Slot",
+      "lastChecked": "2026-09-23T08:00:00Z"
+    },
     "earTipRequired": true,
     "requiresTrap": true,
-    "notes": "High-volume spay/neuter surgical center located adjacent to Sacramento County Animal Care."
+    "notes": "High-volume surgical center adjacent to Sacramento County Animal Care."
   },
   {
     "id": "animal_fix_clinic",
@@ -100,24 +145,21 @@
     "website": "https://animalfixclinic.org/",
     "bookingUrl": "https://animalfixclinic.org/make-an-appointment/",
     "bookingType": "online_system",
+    "releaseWindow": "Opens on the 15th of each month for following month appointments",
+    "countyFreeProgram": {
+      "hasFreeProgram": true,
+      "programName": "Contra Costa Community Cat Subsidy",
+      "details": "Free or heavily subsidized ($15 max) feral surgeries for cats originating in Contra Costa and Alameda counties."
+    },
+    "availability": {
+      "status": "available",
+      "earliestDate": "2026-09-29",
+      "slotType": "Community Cat Intake",
+      "lastChecked": "2026-09-23T08:00:00Z"
+    },
     "earTipRequired": true,
     "requiresTrap": true,
-    "notes": "Formerly Fix Our Ferals; specialized surgical clinic dedicated to community cats and feral TNR."
-  },
-  {
-    "id": "contra_costa_humane",
-    "name": "Contra Costa Humane Society (Spay/Neuter Program)",
-    "county": "Contra Costa",
-    "address": "171 Mayhew Way, Suite 101, Pleasant Hill, CA 94523",
-    "lat": 37.9333,
-    "lng": -122.0592,
-    "phone": "925-279-2241",
-    "website": "https://www.cchumane.org/",
-    "bookingUrl": "https://www.cchumane.org/spay-neuter/",
-    "bookingType": "online_system",
-    "earTipRequired": true,
-    "requiresTrap": true,
-    "notes": "Provides subsidized spay/neuter assistance vouchers and community cat TNR coordination."
+    "notes": "Dedicated community cat surgery center (formerly Fix Our Ferals). Online booking required."
   },
   {
     "id": "napa_humane_clinic",
@@ -130,24 +172,21 @@
     "website": "https://napahumane.org/",
     "bookingUrl": "https://napahumane.org/clinic/schedule-an-appointment/",
     "bookingType": "online_system",
+    "releaseWindow": "Calendar opens 30 days in advance on a rolling daily basis",
+    "countyFreeProgram": {
+      "hasFreeProgram": false,
+      "programName": "Napa Feral Package Rate",
+      "details": "Flat $30 low-cost package for Napa County feral cats (includes rabies and ear tip); grants apply when funded."
+    },
+    "availability": {
+      "status": "booked_out",
+      "earliestDate": null,
+      "slotType": null,
+      "lastChecked": "2026-09-23T08:00:00Z"
+    },
     "earTipRequired": true,
     "requiresTrap": true,
-    "notes": "Nonprofit surgical clinic providing high-volume sterilization, feral cat packages, and rabies vaccines."
-  },
-  {
-    "id": "whiskers_clinic",
-    "name": "W.H.I.S.K.E.R.S. Low-Cost Spay/Neuter Clinic",
-    "county": "Napa",
-    "address": "2480 3rd St, Napa, CA 94559",
-    "lat": 38.2974,
-    "lng": -122.2855,
-    "phone": "707-258-2287",
-    "website": "https://www.whiskers.org/",
-    "bookingUrl": null,
-    "bookingType": "phone_or_inquiry",
-    "earTipRequired": true,
-    "requiresTrap": true,
-    "notes": "Dedicated community cat and kitten rescue group managing feral trap-neuter-return packages in Napa."
+    "notes": "Nonprofit surgical clinic providing high-volume sterilization and feral cat packages."
   },
   {
     "id": "placer_spca_clinic",
@@ -160,23 +199,20 @@
     "website": "https://placerspca.org/",
     "bookingUrl": "https://placerspca.org/feral-cats/",
     "bookingType": "online_system",
+    "releaseWindow": "Released on the 20th of each month for the following month",
+    "countyFreeProgram": {
+      "hasFreeProgram": true,
+      "programName": "Placer Resident Feral Voucher",
+      "details": "FREE TNR for cats trapped within Roseville and Placer County with verified resident voucher."
+    },
+    "availability": {
+      "status": "batch_drop_scheduled",
+      "earliestDate": "2026-10-20",
+      "slotType": "Batch Drop",
+      "lastChecked": "2026-09-23T08:00:00Z"
+    },
     "earTipRequired": true,
     "requiresTrap": true,
-    "notes": "Affordable sterilization and voucher programs for feral and community cats within Placer County."
-  },
-  {
-    "id": "animal_spay_neuter_auburn",
-    "name": "Animal Spay & Neuter Clinic",
-    "county": "Placer",
-    "address": "3524 Industrial Ave, Rocklin, CA 95765",
-    "lat": 38.8166,
-    "lng": -121.2721,
-    "phone": "916-624-8255",
-    "website": "https://animalspayneuter.com/",
-    "bookingUrl": "https://animalspayneuter.com/request-an-appointment/",
-    "bookingType": "online_system",
-    "earTipRequired": true,
-    "requiresTrap": true,
-    "notes": "Specializes in high-volume, low-cost spay/neuter surgeries including trapped feral community cats."
+    "notes": "Sterilization and voucher programs for feral and community cats within Placer County."
   }
-]  
+]
