@@ -1,0 +1,62 @@
+[
+  {
+    "id": "clinic_solano_spca",
+    "name": "SPCA of Solano County",
+    "address": "2200 Peabody Rd, Vacaville, CA 95687",
+    "lat": 38.3308,
+    "lng": -121.9682,
+    "phone": "707-448-7722",
+    "website": "https://www.solanospca.com/",
+    "earTipRequired": true,
+    "requiresTrap": true,
+    "notes": "Low-cost spay/neuter clinic; contact directly for feral intake availability."
+  },
+  {
+    "id": "clinic_solano_animal_care",
+    "name": "Solano County Animal Care",
+    "address": "2510 Clay Bank Rd, Fairfield, CA 94533",
+    "lat": 38.2711,
+    "lng": -122.0229,
+    "phone": "707-784-1356",
+    "website": "https://www.solanocounty.com/",
+    "earTipRequired": true,
+    "requiresTrap": true,
+    "notes": "County shelter services; provides spay/neuter voucher coordination and trap loans."
+  },
+  {
+    "id": "clinic_sac_spca",
+    "name": "Sacramento SPCA",
+    "address": "6201 Florin Perkins Rd, Sacramento, CA 95828",
+    "lat": 38.5204,
+    "lng": -121.3916,
+    "phone": "916-383-7387",
+    "website": "http://www.sspca.org/",
+    "earTipRequired": true,
+    "requiresTrap": true,
+    "notes": "Dedicated Sunday feral cat clinic days plus regular TNR drop-off by appointment."
+  },
+  {
+    "id": "clinic_csnc_sac",
+    "name": "Community Spay Neuter Clinic",
+    "address": "3839 Bradshaw Rd, Sacramento, CA 95827",
+    "lat": 38.5637,
+    "lng": -121.3346,
+    "phone": "916-368-7314",
+    "website": "http://www.communityspayneuter.com/",
+    "earTipRequired": true,
+    "requiresTrap": true,
+    "notes": "High-volume surgery center adjacent to Bradshaw Shelter; accepts trapped ferals."
+  },
+  {
+    "id": "clinic_animal_fix_pinole",
+    "name": "Animal Fix Clinic",
+    "address": "910 San Pablo Ave, Pinole, CA 94564",
+    "lat": 37.9998,
+    "lng": -122.3021,
+    "phone": "510-215-9300",
+    "website": "http://www.animalfixclinic.org/",
+    "earTipRequired": true,
+    "requiresTrap": true,
+    "notes": "Specialized community cat center (formerly Fix Our Ferals). Online appointment booking."
+  }
+]
