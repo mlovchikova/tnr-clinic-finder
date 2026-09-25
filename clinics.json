@@ -51,7 +51,7 @@
     },
     "earTipRequired": true,
     "requiresTrap": true,
-    "notes": "Low-cost community spay/neuter; feral slots must be pre-arranged directly by phone."
+    "notes": "Our spay and neuter clinic is closed indefinitely due to circumstances beyond our control. Low-cost community spay/neuter; feral slots must be pre-arranged directly by phone."
   },
   {
     "id": "solano_animal_care",
@@ -170,7 +170,7 @@
     "lng": -122.3021,
     "phone": "510-215-9300",
     "website": "https://animalfixclinic.org/",
-    "bookingUrl": "https://animalfixclinic.org/make-an-appointment/",
+    "bookingUrl": "https://app.clinichq.com/online/1cb2a455-e7d7-42c8-960e-26c381f628e2",
     "bookingType": "online_system",
     "releaseWindow": "Opens on the 15th of each month for following month appointments",
     "countyFreeProgram": {
@@ -179,8 +179,8 @@
       "details": "Free or heavily subsidized ($15 max) feral surgeries for cats originating in Contra Costa and Alameda counties."
     },
     "availability": {
-      "status": "available",
-      "earliestDate": "2026-09-29",
+      "status": "not available",
+      "earliestDate": "2026-11-01",
       "slotType": "Community Cat Intake",
       "lastChecked": "2026-09-23T08:00:00Z"
     },
