@@ -88,8 +88,8 @@
     "lat": 38.6657,
     "lng": -121.7455,
     "phone": "530-908-2093",
-    "website": "https://yolospca.org/",
-    "bookingUrl": "https://yolospca.org/spay-neuter-clinic/",
+    "website": "https://www.yolospca.org/spay-neuter.html",
+    "bookingUrl": "https://form.jotform.com/232844804810051",
     "bookingType": "online_system",
     "releaseWindow": "Slots release every Monday at 10:00 AM for the upcoming clinic cycle",
     "countyFreeProgram": {
@@ -105,7 +105,7 @@
     },
     "earTipRequired": true,
     "requiresTrap": true,
-    "notes": "High-volume TNR program covering Yolo County and surrounding rural zones with regular trap intake days. Only ferals from Yolo County are acccepted"
+    "notes": "High-volume TNR program covering Yolo County and surrounding rural zones with regular trap intake days. Only ferals from Yolo County are acccepted. $76 per cat if possible"
   },
   {
     "id": "sacramento_spca",
