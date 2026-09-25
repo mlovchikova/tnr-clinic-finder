@@ -146,7 +146,19 @@
         day: "numeric"
       });
     }
+    function formatRelativeTime(isoString) {
+      if (!isoString) return "";
+      const date = new Date(isoString);
+      const now = new Date();
+      const diffHours = Math.floor((now - date) / (1000 * 60 * 60));
 
+      if (diffHours < 1) return "Just now";
+      if (diffHours < 24) return `${diffHours}h ago`;
+      const diffDays = Math.floor(diffHours / 24);
+      if (diffDays === 1) return "Yesterday";
+      if (diffDays < 14) return `${diffDays}d ago`;
+      return date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+    }
     function renderAvailabilityBadge(availability, releaseWindow) {
       if (!availability) return "";
 
@@ -225,6 +237,7 @@
         .map((clinic) => {
           const hasOnlineBooking = clinic.bookingUrl && clinic.bookingType === "online_system";
           const freeProgram = clinic.countyFreeProgram;
+          const fb = clinic.facebook;
 
           return `
           <article class="bg-white rounded-xl p-5 border border-slate-200 shadow-sm hover:border-emerald-300 transition flex flex-col justify-between">
@@ -278,6 +291,30 @@
               <!-- Availability / Batch Drop Schedule Banner -->
               ${renderAvailabilityBadge(clinic.availability, clinic.releaseWindow)}
 
+              <!-- Facebook Latest Post Callout -->
+              ${
+                fb && fb.latestPost
+                  ? `
+                  <div class="mt-3 bg-blue-50/60 border border-blue-200 rounded-lg p-3 text-xs text-slate-800">
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="font-semibold text-blue-900 flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5 fill-blue-600" viewBox="0 0 24 24">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                        Latest Update:
+                      </span>
+                      <span class="text-[11px] text-slate-500 font-medium">${formatRelativeTime(fb.latestPost.postedAt)}</span>
+                    </div>
+                    <p class="text-slate-700 leading-relaxed italic">"${fb.latestPost.text}"</p>
+                    <div class="mt-1.5">
+                      <a href="${fb.latestPost.postUrl || fb.pageUrl}" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 font-medium underline text-[11px]">
+                        View on Facebook ↗
+                      </a>
+                    </div>
+                  </div>`
+                  : ""
+              }
+
               <!-- TNR Requirements Badges -->
               <div class="flex flex-wrap gap-2 mt-3">
                 ${
@@ -303,6 +340,15 @@
                 <a href="${clinic.website}" target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-slate-900 font-medium">
                   Website ↗
                 </a>
+                ${
+                  fb && fb.pageUrl
+                    ? `
+                    <span class="text-slate-300">|</span>
+                    <a href="${fb.pageUrl}" target="_blank" rel="noopener noreferrer" class="text-blue-700 hover:text-blue-900 font-medium flex items-center gap-1">
+                      Facebook ↗
+                    </a>`
+                    : ""
+                }
               </div>
 
               ${
@@ -317,7 +363,7 @@
         `;
         })
         .join("");
-    }
+      }
     async function handleSearch(e) {
       if (e) e.preventDefault();
       const zip = document.getElementById("zip-input").value.trim();

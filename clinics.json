@@ -16,6 +16,15 @@
       "programName": "Subsidized Community TNR",
       "details": "Low-cost community cat package (surgery, rabies/FVRCP, flea/parasite treatment, ear-tip); trap loans available with deposit."
     },
+    "facebook": {
+      "pageUrl": "https://www.facebook.com/solanoferals",
+      "pageId": "solanoferals",
+      "latestPost": {
+        "text": "Upcoming Sunday clinic slots are now open! Please fill out our online appointment request form to reserve your trap.",
+        "postedAt": "2026-09-24T18:30:00Z",
+        "postUrl": "https://www.facebook.com/solanoferals"
+      }
+    },
     "availability": {
       "status": "available",
       "earliestDate": "2026-10-04",
@@ -42,6 +51,15 @@
       "hasFreeProgram": false,
       "programName": "Subsidized Low-Cost",
       "details": "Low copay ($25–$40) for Solano County feral cats; proof of local trapping required."
+    },
+    "facebook": {
+      "pageUrl": "https://www.facebook.com/SPCAofSolanoCounty",
+      "pageId": "SPCAofSolanoCounty",
+      "latestPost": {
+        "text": "Low-cost spay and neuter clinics continue through the month! Call our clinic line weekdays between 9 AM and 1 PM for intake availability.",
+        "postedAt": "2026-09-24T17:15:00Z",
+        "postUrl": "https://www.facebook.com/SPCAofSolanoCounty"
+      }
     },
     "availability": {
       "status": "call_to_check",
@@ -70,6 +88,15 @@
       "programName": "Solano County Voucher Assistance",
       "details": "FREE spay/neuter vouchers issued to residents of unincorporated Solano, Dixon, Fairfield, Suisun, and Rio Vista."
     },
+    "facebook": {
+      "pageUrl": "https://www.facebook.com/SolanoCountyAnimalCare",
+      "pageId": "SolanoCountyAnimalCare",
+      "latestPost": {
+        "text": "Spay and neuter vouchers are available at our front desk for unincorporated Solano, Dixon, and Fairfield residents. Trap rentals available on-site.",
+        "postedAt": "2026-09-22T19:00:00Z",
+        "postUrl": "https://www.facebook.com/SolanoCountyAnimalCare"
+      }
+    },
     "availability": {
       "status": "walk_in_only",
       "earliestDate": null,
@@ -97,6 +124,15 @@
       "programName": "Yolo County Free TNR Grant",
       "details": "100% FREE surgery, rabies, and ear-tip for community cats trapped within Yolo County boundaries."
     },
+    "facebook": {
+      "pageUrl": "https://www.facebook.com/yolospca",
+      "pageId": "yolospca",
+      "latestPost": {
+        "text": "Reminder: Feral cat clinic registration opens Mondays at 10 AM. Free surgeries for verified Yolo County community cats.",
+        "postedAt": "2026-09-23T16:00:00Z",
+        "postUrl": "https://www.facebook.com/yolospca"
+      }
+    },
     "availability": {
       "status": "available",
       "earliestDate": "2026-09-28",
@@ -106,6 +142,42 @@
     "earTipRequired": true,
     "requiresTrap": true,
     "notes": "High-volume TNR program covering Yolo County and surrounding rural zones with regular trap intake days. Only ferals from Yolo County are acccepted. $76 per cat if possible"
+  },
+  {
+    "id": "uc_davis_community_surgery",
+    "name": "UC Davis Community Surgery Service",
+    "county": "Yolo",
+    "address": "1 Garrod Dr, Davis, CA 95616",
+    "lat": 38.5303,
+    "lng": -121.7645,
+    "phone": "530-752-1393",
+    "website": "https://www.vetmed.ucdavis.edu/",
+    "facebook": {
+      "pageUrl": "https://www.facebook.com/UCDavisVetMed",
+      "pageId": "UCDavisVetMed",
+      "latestPost": {
+        "text": "Our community surgery service partners with local shelters and rescues for student training and low-cost sterilization outreach.",
+        "postedAt": "2026-09-21T20:10:00Z",
+        "postUrl": "https://www.facebook.com/UCDavisVetMed"
+      }
+    },
+    "bookingUrl": null,
+    "bookingType": "phone_or_inquiry",
+    "releaseWindow": "Direct rescue referral and designated teaching schedule",
+    "countyFreeProgram": {
+      "hasFreeProgram": false,
+      "programName": "Subsidized Teaching Service",
+      "details": "Discounted surgical fees when scheduled through partner rescue outreach programs."
+    },
+    "availability": {
+      "status": "call_to_check",
+      "earliestDate": null,
+      "slotType": "Rescue Partner Referral",
+      "lastChecked": "2026-09-25T14:00:00Z"
+    },
+    "earTipRequired": true,
+    "requiresTrap": true,
+    "notes": "Operates community veterinary programs and spay/neuter outreach in collaboration with local rescues."
   },
   {
     "id": "sacramento_spca",
@@ -123,6 +195,15 @@
       "hasFreeProgram": true,
       "programName": "City/County Feral Cat Program",
       "details": "FREE TNR for residents within City of Sacramento & unincorporated County boundaries (funded via municipal animal care contracts).$65 fee if trapped outside Sacramento County"
+    },
+    "facebook": {
+      "pageUrl": "https://www.facebook.com/SacSPCA",
+      "pageId": "SacSPCA",
+      "latestPost": {
+        "text": "October feral cat spay/neuter appointments open October 1st at 7:00 AM sharp online. Mark your calendars!",
+        "postedAt": "2026-09-24T15:00:00Z",
+        "postUrl": "https://www.facebook.com/SacSPCA"
+      }
     },
     "availability": {
       "status": "batch_drop_scheduled",
@@ -151,6 +232,15 @@
       "programName": "Bradshaw Voucher Acceptance",
       "details": "Accepts Sacramento County Animal Care vouchers for $0 copay community cat sterilizations."
     },
+    "facebook": {
+      "pageUrl": "https://www.facebook.com/CommunitySpayNeuterClinic",
+      "pageId": "CommunitySpayNeuterClinic",
+      "latestPost": {
+        "text": "New appointments dropped today for next week! We accept Sacramento County Bradshaw vouchers for community cats.",
+        "postedAt": "2026-09-25T12:05:00Z",
+        "postUrl": "https://www.facebook.com/CommunitySpayNeuterClinic"
+      }
+    },
     "availability": {
       "status": "available",
       "earliestDate": "2026-10-20",
@@ -177,6 +267,15 @@
       "hasFreeProgram": true,
       "programName": "Contra Costa Community Cat Subsidy",
       "details": "Free or heavily subsidized ($15 max) feral surgeries for cats originating in Contra Costa and Alameda counties."
+    },
+    "facebook": {
+      "pageUrl": "https://www.facebook.com/AnimalFixClinic",
+      "pageId": "AnimalFixClinic",
+      "latestPost": {
+        "text": "TNR appointments are live on our website. Please ensure all community cats are brought in hard wire humane traps with covers.",
+        "postedAt": "2026-09-23T21:40:00Z",
+        "postUrl": "https://www.facebook.com/AnimalFixClinic"
+      }
     },
     "availability": {
       "status": "not available",
@@ -205,6 +304,15 @@
       "programName": "Napa Feral Package Rate",
       "details": "Flat $30 low-cost package for Napa County feral cats (includes rabies and ear tip); grants apply when funded."
     },
+    "facebook": {
+      "pageUrl": "https://www.facebook.com/napahumane",
+      "pageId": "napahumane",
+      "latestPost": {
+        "text": "Appointments open daily on a rolling 30-day window. Feral cat surgical packages include mandatory ear-tipping and rabies vaccination.",
+        "postedAt": "2026-09-24T18:00:00Z",
+        "postUrl": "https://www.facebook.com/napahumane"
+      }
+    },
     "availability": {
       "status": "booked_out",
       "earliestDate": null,
@@ -214,6 +322,78 @@
     "earTipRequired": true,
     "requiresTrap": true,
     "notes": "Nonprofit surgical clinic providing high-volume sterilization and feral cat packages. Only Napa county ferals are accepted."
+  },
+  {
+    "id": "contra_costa_humane",
+    "name": "Contra Costa Humane Society",
+    "county": "Contra Costa",
+    "address": "171 Mayhew Way, Suite 101, Pleasant Hill, CA 94523",
+    "lat": 37.9333,
+    "lng": -122.0592,
+    "phone": "925-279-2241",
+    "website": "https://www.cchumane.org/",
+    "facebook": {
+      "pageUrl": "https://www.facebook.com/cchumane",
+      "pageId": "cchumane",
+      "latestPost": {
+        "text": "Spay and neuter financial assistance vouchers are open for local trappers and caretakers. Apply through our spay/neuter portal.",
+        "postedAt": "2026-09-20T17:30:00Z",
+        "postUrl": "https://www.facebook.com/cchumane"
+      }
+    },
+    "bookingUrl": "https://www.cchumane.org/spay-neuter/",
+    "bookingType": "online_system",
+    "releaseWindow": "Voucher applications processed on a rolling weekly schedule",
+    "countyFreeProgram": {
+      "hasFreeProgram": false,
+      "programName": "Spay/Neuter Assistance Program",
+      "details": "Financial assistance vouchers provided to low-income residents and community cat caretakers."
+    },
+    "availability": {
+      "status": "available",
+      "earliestDate": "2026-10-05",
+      "slotType": "Voucher Application",
+      "lastChecked": "2026-09-25T14:00:00Z"
+    },
+    "earTipRequired": true,
+    "requiresTrap": true,
+    "notes": "Provides subsidized spay/neuter assistance vouchers and community cat TNR coordination."
+  },
+  {
+    "id": "whiskers_clinic",
+    "name": "W.H.I.S.K.E.R.S. Low-Cost Spay/Neuter Clinic",
+    "county": "Napa",
+    "address": "2480 3rd St, Napa, CA 94559",
+    "lat": 38.2974,
+    "lng": -122.2855,
+    "phone": "707-258-2287",
+    "website": "https://www.whiskers.org/",
+    "facebook": {
+      "pageUrl": "https://www.facebook.com/whiskersnapaca",
+      "pageId": "whiskersnapaca",
+      "latestPost": {
+        "text": "Trap loans and community cat appointments available this week. Please message or call us directly to coordinate pickup.",
+        "postedAt": "2026-09-21T19:45:00Z",
+        "postUrl": "https://www.facebook.com/whiskersnapaca"
+      }
+    },
+    "bookingUrl": null,
+    "bookingType": "phone_or_inquiry",
+    "releaseWindow": "Call or message to schedule based on volunteer clinic capacity",
+    "countyFreeProgram": {
+      "hasFreeProgram": false,
+      "programName": "Community Cat Subsidy",
+      "details": "Subsidized feral cat surgeries and loaner traps for Napa caretakers."
+    },
+    "availability": {
+      "status": "call_to_check",
+      "earliestDate": null,
+      "slotType": "Volunteer Intake",
+      "lastChecked": "2026-09-25T14:00:00Z"
+    },
+    "earTipRequired": true,
+    "requiresTrap": true,
+    "notes": "Dedicated community cat and kitten rescue group managing feral trap-neuter-return packages in Napa."
   },
   {
     "id": "placer_spca_clinic",
@@ -232,6 +412,15 @@
       "programName": "Placer Resident Feral Voucher",
       "details": "FREE TNR for cats trapped within Roseville and Placer County with verified resident voucher."
     },
+    "facebook": {
+      "pageUrl": "https://www.facebook.com/PlacerSPCA",
+      "pageId": "PlacerSPCA",
+      "latestPost": {
+        "text": "Next month's TNR slots open on the 20th! Placer County residents can book free community cat slots with local resident voucher.",
+        "postedAt": "2026-09-22T20:30:00Z",
+        "postUrl": "https://www.facebook.com/PlacerSPCA"
+      }
+    },
     "availability": {
       "status": "batch_drop_scheduled",
       "earliestDate": "2026-10-20",
@@ -241,5 +430,41 @@
     "earTipRequired": true,
     "requiresTrap": true,
     "notes": "Sterilization and voucher programs for feral and community cats within Placer County."
+  },
+  {
+    "id": "animal_spay_neuter_auburn",
+    "name": "Animal Spay & Neuter Clinic",
+    "county": "Placer",
+    "address": "3524 Industrial Ave, Rocklin, CA 95765",
+    "lat": 38.8166,
+    "lng": -121.2721,
+    "phone": "916-624-8255",
+    "website": "https://animalspayneuter.com/",
+    "facebook": {
+      "pageUrl": "https://www.facebook.com/AnimalSpayNeuter",
+      "pageId": "AnimalSpayNeuter",
+      "latestPost": {
+        "text": "Community cat surgery appointments can be requested directly on our website. Standard feral package includes mandatory left ear-tip.",
+        "postedAt": "2026-09-23T16:15:00Z",
+        "postUrl": "https://www.facebook.com/AnimalSpayNeuter"
+      }
+    },
+    "bookingUrl": "https://animalspayneuter.com/request-an-appointment/",
+    "bookingType": "online_system",
+    "releaseWindow": "Online request form processed Monday through Friday",
+    "countyFreeProgram": {
+      "hasFreeProgram": false,
+      "programName": "Low-Cost Community Cat Tier",
+      "details": "Flat discounted surgical rate for ferals in wire traps; voucher acceptance when available."
+    },
+    "availability": {
+      "status": "available",
+      "earliestDate": "2026-10-06",
+      "slotType": "Weekday Feral Surgery",
+      "lastChecked": "2026-09-25T14:00:00Z"
+    },
+    "earTipRequired": true,
+    "requiresTrap": true,
+    "notes": "Specializes in high-volume, low-cost spay/neuter surgeries including trapped feral community cats."
   }
 ]
