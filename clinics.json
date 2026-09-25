@@ -20,7 +20,7 @@
       "status": "available",
       "earliestDate": "2026-10-04",
       "slotType": "Monthly TNR Clinic Request",
-      "lastChecked": "2026-09-24T10:33:24Z"
+      "lastChecked": "2026-09-25T10:36:48Z"
     },
     "earTipRequired": true,
     "requiresTrap": true,
@@ -101,7 +101,7 @@
       "status": "available",
       "earliestDate": "2026-09-28",
       "slotType": "Monday Drop-off",
-      "lastChecked": "2026-09-24T10:33:24Z"
+      "lastChecked": "2026-09-25T10:36:48Z"
     },
     "earTipRequired": true,
     "requiresTrap": true,
@@ -128,7 +128,7 @@
       "status": "batch_drop_scheduled",
       "earliestDate": "2026-09-24",
       "slotType": "Portal Batch Drop",
-      "lastChecked": "2026-09-24T10:33:24Z"
+      "lastChecked": "2026-09-25T10:36:48Z"
     },
     "earTipRequired": true,
     "requiresTrap": true,
@@ -155,7 +155,7 @@
       "status": "available",
       "earliestDate": "2026-10-20",
       "slotType": "Weekday Surgery Slot",
-      "lastChecked": "2026-09-24T10:33:24Z"
+      "lastChecked": "2026-09-25T10:36:48Z"
     },
     "earTipRequired": true,
     "requiresTrap": true,
@@ -182,7 +182,7 @@
       "status": "available",
       "earliestDate": "2026-09-29",
       "slotType": "Community Cat Intake",
-      "lastChecked": "2026-09-24T10:33:24Z"
+      "lastChecked": "2026-09-25T10:36:48Z"
     },
     "earTipRequired": true,
     "requiresTrap": true,
@@ -209,7 +209,7 @@
       "status": "booked_out",
       "earliestDate": null,
       "slotType": null,
-      "lastChecked": "2026-09-24T10:33:24Z"
+      "lastChecked": "2026-09-25T10:36:48Z"
     },
     "earTipRequired": true,
     "requiresTrap": true,
@@ -236,7 +236,7 @@
       "status": "batch_drop_scheduled",
       "earliestDate": "2026-10-20",
       "slotType": "Batch Drop",
-      "lastChecked": "2026-09-24T10:33:24Z"
+      "lastChecked": "2026-09-25T10:36:48Z"
     },
     "earTipRequired": true,
     "requiresTrap": true,
