@@ -144,14 +144,14 @@
     "notes": "High-volume TNR program covering Yolo County and surrounding rural zones with regular trap intake days. Only ferals from Yolo County are acccepted. $76 per cat if possible"
   },
   {
-    "id": "uc_davis_community_surgery",
-    "name": "UC Davis Community Surgery Service",
+    "id": "uc_davis_shelter_surgery",
+    "name": "UC Davis Shelter Surgery Service",
     "county": "Yolo",
     "address": "1 Garrod Dr, Davis, CA 95616",
     "lat": 38.5303,
     "lng": -121.7645,
     "phone": "530-752-1393",
-    "website": "https://www.vetmed.ucdavis.edu/",
+    "website": "https://www.vetmed.ucdavis.edu/hospital/small-animal/shelter-surgery",
     "facebook": {
       "pageUrl": "https://www.facebook.com/UCDavisVetMed",
       "pageId": "UCDavisVetMed",
@@ -167,7 +167,7 @@
     "countyFreeProgram": {
       "hasFreeProgram": false,
       "programName": "Subsidized Teaching Service",
-      "details": "Discounted surgical fees when scheduled through partner rescue outreach programs."
+      "details": "Currently, this program offers the only low-cost and TNVR support available in Yolo County. Discounted surgical fees when scheduled through partner rescue outreach programs."
     },
     "availability": {
       "status": "call_to_check",
